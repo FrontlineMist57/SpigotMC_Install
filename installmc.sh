@@ -60,4 +60,5 @@ view-distance=10
 generate-structures=true
 motd=Setup By GeekSpeak.IT
 EOM
+mv $HOME/server-icon.png $HOME/spigotmc/
 echo "To start your minecraft server type './startmc.sh' and hit enter."
