@@ -14,4 +14,5 @@ sudo yum -y install git
 git clone https://github.com/Rapitharian/SpigotMC_Install.git
 mv $HOME/SpigotMC_Install/installmc.sh $HOME
 chmod +x *.sh
+./installmc.sh 2>&1 | tee -a SpigotMC_Install.log
 </pre>
