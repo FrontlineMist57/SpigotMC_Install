@@ -1,5 +1,6 @@
 #! /bin/sh
 RED='\033[0;31m'
+GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 read -e -p "What version of openjava would you like to install? [1.8.0]: " Java1
 Java1=${Java1:-1.8.0}
@@ -68,4 +69,4 @@ EOM
 mv $HOME/SpigotMC_Install/server-icon.png $HOME/spigotmc/
 rm -rf $HOME/SpigotMC_Install
 echo -e "\n"
-echo -e 'To start your minecraft server type "${RED}./startmc.sh${NC}" and hit enter.'
+echo -e 'To start your minecraft server type "'${GREEN}'./startmc.sh'${NC}'" and hit enter.'
