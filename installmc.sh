@@ -1,11 +1,14 @@
 #! /bin/sh
+read -e -p "What version of openjava would you like to install? [1.8.0]: " Java1
+Java1=${Java1:-1.8.0}
+read -e -p "What version of spigot would you like to install? [1.13.2]: " Spigot1
+Spigot1=${Spigot1:-1.13.2}
 sudo yum -y install update
-sudo yum -y install java-1.8.0-openjdk
-sudo yum -y install wget
+sudo yum -y install java-$Java1-openjdk wget
 mkdir spigotmc
 cd spigotmc
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
-wget https://cdn.getbukkit.org/spigot/spigot-1.13.2.jar
+wget https://cdn.getbukkit.org/spigot/spigot-$Spigot1.jar
 mv spigot-1.13.2.jar spigot.jar
 /bin/cat <<EOM >/$HOME/startmc.sh
 #!/bin/sh
@@ -16,7 +19,6 @@ chmod +x /$HOME/startmc.sh
 chmod +x *.jar 
 $HOME/startmc.sh
 sed -i 's/false.*/true/' $HOME/spigotmc/eula.txt
-#cp eula.txt $HOME/
 cd ..
 sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp
 sudo systemctl restart firewalld
