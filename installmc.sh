@@ -68,4 +68,4 @@ EOM
 mv $HOME/SpigotMC_Install/server-icon.png $HOME/spigotmc/
 rm -rf $HOME/SpigotMC_Install
 echo -e "\n"
-echo 'To start your minecraft server type "'$RED'./startmc.sh'$NC'" and hit enter.'
+echo -e 'To start your minecraft server type "${RED}./startmc.sh${NC}" and hit enter.'
