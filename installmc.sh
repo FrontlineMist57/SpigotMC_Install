@@ -11,7 +11,7 @@ mkdir spigotmc
 cd spigotmc
 wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
 wget https://cdn.getbukkit.org/spigot/spigot-$Spigot1.jar
-mv spigot-1.13.2.jar spigot.jar
+mv spigot-$Spigot1.jar spigot.jar
 /bin/cat <<EOM >/$HOME/startmc.sh
 #!/bin/sh
 cd $HOME/spigotmc
