@@ -9,13 +9,14 @@ wget https://cdn.getbukkit.org/spigot/spigot-1.13.2.jar
 mv spigot-1.13.2.jar spigot.jar
 /bin/cat <<EOM >/$HOME/startmc.sh
 #!/bin/sh
+cd $HOME/spigotmc
 java -Xms1G -Xmx1G -XX:+UseConcMarkSweepGC -DIReallyKnowWhatIAmDoingISwear -jar $HOME/spigotmc/spigot.jar
 EOM
 chmod +x /$HOME/startmc.sh
 chmod +x *.jar 
 $HOME/startmc.sh
 sed -i 's/false.*/true/' $HOME/spigotmc/eula.txt
-cp eula.txt $HOME/
+#cp eula.txt $HOME/
 cd ..
 sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp
 sudo systemctl restart firewalld
@@ -58,7 +59,7 @@ max-tick-time=60000
 spawn-monsters=true
 view-distance=10
 generate-structures=true
-motd=Setup By GeekSpeak.IT
+motd=Setup by GeekSpeak.IT
 EOM
 mv $HOME/SpigotMC_Install/server-icon.png $HOME/spigotmc/
 rm -rf $HOME/SpigotMC_Install
