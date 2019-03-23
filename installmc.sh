@@ -1,0 +1,63 @@
+#! /bin/sh
+sudo yum -y install update
+sudo yum -y install java-1.8.0-openjdk
+sudo yum -y install wget
+mkdir spigotmc
+cd spigotmc
+wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
+wget https://cdn.getbukkit.org/spigot/spigot-1.13.2.jar
+mv spigot-1.13.2.jar spigot.jar
+/bin/cat <<EOM >/$HOME/startmc.sh
+#!/bin/sh
+java -Xms1G -Xmx1G -XX:+UseConcMarkSweepGC -DIReallyKnowWhatIAmDoingISwear -jar $HOME/spigotmc/spigot.jar
+EOM
+chmod +x /$HOME/startmc.sh
+chmod +x *.jar 
+$HOME/startmc.sh
+sed -i 's/false.*/true/' $HOME/spigotmc/eula.txt
+cp eula.txt $HOME/
+cd ..
+sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp
+sudo systemctl restart firewalld
+rm $HOME/spigotmc/server.properties
+/bin/cat <<EOM >/$HOME/spigotmc/server.properties
+#Minecraft server properties
+#(File Modification Datestamp)
+generator-settings=
+op-permission-level=4
+allow-nether=true
+enforce-whitelist=false
+level-name=world
+enable-query=false
+allow-flight=false
+prevent-proxy-connections=false
+server-port=25565
+max-world-size=29999984
+level-type=DEFAULT
+enable-rcon=false
+level-seed=geekspeak
+force-gamemode=true
+server-ip=
+network-compression-threshold=256
+max-build-height=256
+spawn-npcs=true
+white-list=false
+spawn-animals=true
+hardcore=false
+snooper-enabled=true
+resource-pack-sha1=
+online-mode=true
+resource-pack=
+pvp=true
+difficulty=1
+enable-command-block=true
+gamemode=0
+player-idle-timeout=0
+max-players=20
+max-tick-time=60000
+spawn-monsters=true
+view-distance=10
+generate-structures=true
+motd=Setup By GeekSpeak.IT
+EOM
+echo "To start your minecraft server type './startmc.sh' and hit enter."
