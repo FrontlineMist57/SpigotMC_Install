@@ -20,3 +20,11 @@ mv $HOME/SpigotMC_Install/installmc.sh $HOME
 chmod +x *.sh
 ./installmc.sh 2>&1 | tee -a SpigotMC_Install.log
 </pre>
+
+<b><u>Cleanup:</u></b><br>
+Remove the installation script installmc.sh<br>
+If you don't need the installation log, remove that as well.<br>
+<pre>
+rm installmc.sh
+rm SpigotMC_Install.log
+</pre>
