@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 read -e -p "What version of openjava would you like to install? [1.8.0]: " Java1
 Java1=${Java1:-1.8.0}
 read -e -p "What version of spigot would you like to install? [1.13.2]: " Spigot1
-Spigot1=${Spigot1:-1.13.2}
+Spigot1=${Spigot1:-1.16.1}
 sudo yum -y install update
 sudo yum -y install java-$Java1-openjdk wget
 mkdir spigotmc
@@ -16,7 +16,7 @@ mv spigot-$Spigot1.jar spigot.jar
 /bin/cat <<EOM >/$HOME/startmc.sh
 #!/bin/sh
 cd $HOME/spigotmc
-java -Xms1G -Xmx1G -XX:+UseConcMarkSweepGC -DIReallyKnowWhatIAmDoingISwear -jar $HOME/spigotmc/spigot.jar
+java -Xms2G -Xmx2G -XX:+UseConcMarkSweepGC -DIReallyKnowWhatIAmDoingISwear -jar $HOME/spigotmc/spigot.jar nogui
 EOM
 chmod +x /$HOME/startmc.sh
 chmod +x *.jar 
