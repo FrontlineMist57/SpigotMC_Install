@@ -4,8 +4,8 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 read -e -p "What version of openjava would you like to install? [1.8.0]: " Java1
 Java1=${Java1:-1.8.0}
-read -e -p "What version of spigot would you like to install? [1.13.2]: " Spigot1
-Spigot1=${Spigot1:-1.16.1}
+read -e -p "What version of spigot would you like to install? [1.16.2]: " Spigot1
+Spigot1=${Spigot1:-1.16.2}
 sudo yum -y install update
 sudo yum -y install java-$Java1-openjdk wget
 mkdir spigotmc
