@@ -16,7 +16,7 @@ sudo yum -y install git
 <br>
   Second clone this project and run the install script<br>
 <pre>
-git clone https://github.com/Rapitharian/SpigotMC_Install.git
+git clone https://github.com/Frontesque/SpigotMC_Install.git
 mv $HOME/SpigotMC_Install/installmc.sh $HOME
 chmod +x *.sh
 ./installmc.sh 2>&1 | tee -a SpigotMC_Install.log
